@@ -1,16 +1,32 @@
-# expense_tracker
+Expense Tracker Application Documentation
 
-A new Flutter project.
+The Expense Tracker is a Flutter-based mobile application that allows users to manage their expenses efficiently. The app implements the MVVM (Model-View-ViewModel) architecture and uses the Provider package for state management. User preferences and settings, such as personal details, are saved locally using SharedPreferences. Depending on whether the user has completed their profile setup, the app directs them to either the main screen or a user details input screen.
 
-## Getting Started
+Key Features
+User Onboarding:
+The app checks if the user has provided their details (such as name) on first launch. If not, it prompts the user to enter these details and stores them locally. This onboarding process only occurs once, streamlining future app launches.
+Expense Management:
+Users can manage expenses by adding, editing, or deleting entries. These expenses can be categorized and displayed on the home screen. The expense data is managed via a ViewModel that interacts with the UI.
+Local Data Storage:
+The app uses SharedPreferences to store and retrieve user information such as their name, enabling personalized experiences without requiring a backend or cloud storage.
+State Management with Provider:
+The Provider package is used to manage the application's state. It ensures that updates to the data (e.g., expense list) are reflected across all relevant screens in real-time.
+Architecture
+The app follows the MVVM (Model-View-ViewModel) architecture to separate concerns:
 
-This project is a starting point for a Flutter application.
+**View (UI Layer):**
 
-A few resources to get you started if this is your first Flutter project:
+The UI components are responsible for displaying the app's data and interacting with the user. Key screens include:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+HomeScreen: Displays the user's expenses and options for managing them.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+UserDetailsView: Prompts the user to enter personal information (e.g., name) during initial setup.
+
+**ViewModel (Business Logic Layer):**
+
+The ExpenseViewModel handles the app's core logic, such as adding and deleting expenses. It communicates between the UI and the underlying data model, ensuring the user interface stays updated with any changes in the data.
+
+**Model (Data Layer):**
+
+The data model represents the structure of the expense entries and user information. This layer is responsible for storing, retrieving, and updating expense data.
+
