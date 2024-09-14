@@ -6,7 +6,7 @@ class Expense {
   final double amount;
   final DateTime date;
   final String category;
-  final String? description; // Description field added
+  final String? description;
 
   Expense({
     this.id,
@@ -14,7 +14,7 @@ class Expense {
     required this.amount,
     required this.date,
     required this.category,
-    this.description, // Constructor parameter for description
+    this.description,
   });
 
   Expense copyWith({
@@ -23,7 +23,7 @@ class Expense {
     double? amount,
     DateTime? date,
     String? category,
-    String? description, // Add this line to copyWith method
+    String? description,
   }) {
     return Expense(
       id: id ?? this.id,
@@ -31,7 +31,7 @@ class Expense {
       amount: amount ?? this.amount,
       date: date ?? this.date,
       category: category ?? this.category,
-      description: description ?? this.description, // Add this line
+      description: description ?? this.description,
     );
   }
 
@@ -42,7 +42,7 @@ class Expense {
       'amount': amount,
       'date': date.toIso8601String(),
       'category': category,
-      'description': description, // Add description to map
+      'description': description,
     };
   }
 
@@ -53,7 +53,7 @@ class Expense {
       amount: map['amount'],
       date: DateTime.parse(map['date']),
       category: map['category'],
-      description: map['description'], // Add description from map
+      description: map['description'],
     );
   }
 

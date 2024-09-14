@@ -1,4 +1,4 @@
-part of 'weather_bloc_bloc.dart';
+part of 'weather_bloc.dart';
 
 sealed class WeatherBlocEvent extends Equatable {
   const WeatherBlocEvent();
@@ -7,7 +7,6 @@ sealed class WeatherBlocEvent extends Equatable {
   List<Object> get props => [];
 }
 
-// Event for fetching weather by geolocation
 class FetchWeather extends WeatherBlocEvent {
   final Position position;
 
@@ -17,7 +16,6 @@ class FetchWeather extends WeatherBlocEvent {
   List<Object> get props => [position];
 }
 
-// New event for fetching weather by city name (for search)
 class FetchWeatherByCity extends WeatherBlocEvent {
   final String cityName;
 

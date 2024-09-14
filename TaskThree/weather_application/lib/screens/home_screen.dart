@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:weather_application/bloc/weather_bloc_bloc.dart';
+import 'package:weather_application/bloc/weather_bloc.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,7 +15,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _searchController = TextEditingController();
 
-  // Function to get weather icons based on code
   Widget getWeatherIcon(int code) {
     if (code >= 200 && code < 300) {
       return Image.asset('assets/1.png');
@@ -36,7 +35,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  // Function to handle search event
   void _onSearch(String query) {
     if (query.isNotEmpty) {
       context.read<WeatherBloc>().add(FetchWeatherByCity(query));
@@ -306,8 +304,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
 
-// 5-Day Forecast
-// 5-Day Forecast
+
 const Text(
   '5-Day Forecast',
   style: TextStyle(
@@ -337,8 +334,8 @@ Expanded(
         width: 100,
         margin: const EdgeInsets.symmetric(horizontal: 8),
         decoration: BoxDecoration(
-          color: Colors.transparent, // Set background to transparent
-          borderRadius: BorderRadius.circular(0), // No border radius for borderless appearance
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(0),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

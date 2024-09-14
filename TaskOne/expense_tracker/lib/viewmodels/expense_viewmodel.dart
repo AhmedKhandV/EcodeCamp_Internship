@@ -10,20 +10,17 @@ class ExpenseViewModel extends ChangeNotifier {
 
   List<Expense> get expenses => _expenses;
 
-  // Load expenses from repository
   Future<void> loadExpenses() async {
     _expenses = await _expenseRepository.getExpenses();
     notifyListeners();
   }
 
-  // Add a new expense
   Future<void> addExpense(Expense expense) async {
     final newExpense = await _expenseRepository.addExpense(expense);
     _expenses.add(newExpense);
     notifyListeners();
   }
 
-  // Update an existing expense
   Future<void> updateExpense(Expense expense) async {
     await _expenseRepository.updateExpense(expense);
     final index = _expenses.indexWhere((e) => e.id == expense.id);
@@ -33,24 +30,20 @@ class ExpenseViewModel extends ChangeNotifier {
     }
   }
 
-  // Delete an expense
   Future<void> deleteExpense(int id) async {
     await _expenseRepository.deleteExpense(id);
     _expenses.removeWhere((e) => e.id == id);
     notifyListeners();
   }
 
-  // Save budget to shared preferences
   Future<void> saveBudget(double budget) async {
     await _sharedPreferencesHelper.saveBudget(budget);
   }
 
-  // Get budget from shared preferences
   Future<double?> getBudget() async {
     return await _sharedPreferencesHelper.getBudget();
   }
 
-  // Save the last used category to shared preferences
   Future<void> saveLastUsedCategory(String category) async {
     await _sharedPreferencesHelper.saveLastUsedCategory(category);
   }

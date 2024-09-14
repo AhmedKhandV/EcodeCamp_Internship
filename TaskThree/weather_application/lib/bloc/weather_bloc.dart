@@ -10,7 +10,6 @@ part 'weather_bloc_state.dart';
 
 class WeatherBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
   WeatherBloc() : super(WeatherBlocInitial()) {
-    // Handle geolocation-based weather fetching
     on<FetchWeather>((event, emit) async {
       emit(WeatherBlocLoading());
       try {
@@ -19,13 +18,12 @@ class WeatherBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
           event.position.latitude,
           event.position.longitude,
         );
-        emit(WeatherBlocSuccess(weather, [])); // No forecast for geolocation-based
+        emit(WeatherBlocSuccess(weather, []));
       } catch (e) {
         emit(WeatherBlocFailure());
       }
     });
 
-    // Handle city-based weather fetching (search functionality)
     on<FetchWeatherByCity>((event, emit) async {
       emit(WeatherBlocLoading());
       try {

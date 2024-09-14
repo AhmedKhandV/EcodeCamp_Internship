@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_application/bloc/weather_bloc_bloc.dart';
+import 'package:weather_application/bloc/weather_bloc.dart';
 import 'package:weather_application/screens/home_screen.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -46,7 +46,7 @@ Future<Position> _determinePosition() async {
   serviceEnabled = await Geolocator.isLocationServiceEnabled();
   if (!serviceEnabled) {
     
-    return Future.error('Location services are disabled.');
+    return Future.error('Location services disabled.');
   }
 
   permission = await Geolocator.checkPermission();
@@ -54,13 +54,13 @@ Future<Position> _determinePosition() async {
     permission = await Geolocator.requestPermission();
     if (permission == LocationPermission.denied) {
     
-      return Future.error('Location permissions are denied');
+      return Future.error('Location permissions  denied');
     }
   }
   
   if (permission == LocationPermission.deniedForever) {
     return Future.error(
-      'Location permissions are permanently denied, we cannot request permissions.');
+      'Location permissions  permanently denied.');
   } 
 
 

@@ -39,7 +39,7 @@ class DBHelper {
     try {
       return await _db!.insert(_tableName, task!.toJson());
     } catch (e) {
-      print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+      print('error');
       return 9000;
     }
   }
@@ -59,7 +59,6 @@ class DBHelper {
   }
 
   static Future<List<Map<String, dynamic>>> query() async {
-    print('Query Called!!!!!!!!!!!!!!!!!!!');
     print('insert');
     return await _db!.query(_tableName);
   }

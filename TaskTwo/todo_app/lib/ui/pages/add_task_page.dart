@@ -283,7 +283,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
     if (pickedDate != null) {
       setState(() => _selectedDate = pickedDate);
     } else {
-      print('Please select correct date');
+      print('select correct date');
     }
   }
 
@@ -305,7 +305,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
     } else if (!isStartTime) {
       setState(() => _endTime = formattedTime);
     } else {
-      print('Something went wrong !');
+      print('error ');
     }
   }
 }

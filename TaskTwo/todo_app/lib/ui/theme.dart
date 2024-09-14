@@ -19,15 +19,15 @@ class Themes {
     brightness: Brightness.light,
     colorScheme: ColorScheme.light(
       primary: primaryClr,
-      onPrimary: Colors.white, // You can adjust this as needed
-      secondary: Colors.blue, // You can adjust this as needed
-      onSecondary: Colors.white, // You can adjust this as needed
-      error: Colors.red, // You can adjust this as needed
-      onError: Colors.white, // You can adjust this as needed
+      onPrimary: Colors.white,
+      secondary: Colors.blue,
+      onSecondary: Colors.white,
+      error: Colors.red,
+      onError: Colors.white,
       background: Colors.white,
-      onBackground: Colors.black, // You can adjust this as needed
-      surface: Colors.white, // You can adjust this as needed
-      onSurface: Colors.black, // You can adjust this as needed
+      onBackground: Colors.black,
+      surface: Colors.white,
+      onSurface: Colors.black,
     ),
   );
 
@@ -36,15 +36,15 @@ class Themes {
     brightness: Brightness.dark,
     colorScheme: ColorScheme.dark(
       primary: darkGreyClr,
-      onPrimary: Colors.white, // You can adjust this as needed
-      secondary: Colors.teal, // You can adjust this as needed
-      onSecondary: Colors.white, // You can adjust this as needed
-      error: Colors.red, // You can adjust this as needed
-      onError: Colors.white, // You can adjust this as needed
+      onPrimary: Colors.white,
+      secondary: Colors.teal,
+      onSecondary: Colors.white,
+      error: Colors.red,
+      onError: Colors.white,
       background: darkGreyClr,
-      onBackground: Colors.white, // You can adjust this as needed
+      onBackground: Colors.white,
       surface: darkGreyClr,
-      onSurface: Colors.white, // You can adjust this as needed
+      onSurface: Colors.white,
     ),
   );
 }
